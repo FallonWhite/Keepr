@@ -35,21 +35,34 @@ namespace Keepr.Services
       return vault;
     }
 
-    internal Vault Update(int id, Vault newVault)
+    // internal Vault Update(int id, Vault newVault)
+    // {
+    //   Vault vault = GetById(id);
+    //   if (vault.CreatorId == newVault.CreatorId)
+    //   {
+    //     vault.Name = newVault.Name != null ? newVault.Name : vault.Name;
+    //     vault.Description = newVault.Description != null ? newVault.Description : vault.Description;
+    //     vault.IsPrivate = newVault.IsPrivate;
+    //     if (_vaultsrepo.Update(newVault) > 0)
+    //     {
+    //       return newVault;
+    //     }
+    //     throw new Exception("Cannot Update");
+    //   }
+    //   throw new Exception("Cannot Change What Isn't Yours");
+    // }
+    internal Vault Update(string userId, Vault newVault)
     {
-      Vault vault = GetById(id);
-      if (vault.CreatorId == newVault.CreatorId)
+      Vault original = GetById(newVault.Id);
+      if (original.CreatorId != newVault.CreatorId)
       {
-        vault.Name = newVault.Name != null ? newVault.Name : vault.Name;
-        vault.Description = newVault.Description != null ? newVault.Description : vault.Description;
-        vault.IsPrivate = newVault.IsPrivate;
-        if (_vaultsrepo.Update(newVault) > 0)
-        {
-          return newVault;
-        }
-        throw new Exception("Cannot Update");
+        throw new Exception("Cannot Change What Isn't Yours");
       }
-      throw new Exception("Cannot Change What Isn't Yours");
+      original.Name = newVault.Name ?? original.Name;
+      original.Description = newVault.Description ?? original.Description;
+      original.IsPrivate = newVault.IsPrivate ?? original.IsPrivate;
+      _vaultsrepo.Update(original);
+      return original;
     }
 
     internal string Delete(int id, string userId)

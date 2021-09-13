@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Dapper;
 using Keepr.Models;
-using static Keepr.Models.Keep;
 
 namespace Keepr.Repositories
 {
@@ -31,7 +29,7 @@ namespace Keepr.Repositories
       string sql = @"
       SELECT
       k.*,
-      a.*,
+      a.*
       FROM keeps k
       JOIN accounts a on k.creatorId = a.id
       WHERE k.id =@id;";

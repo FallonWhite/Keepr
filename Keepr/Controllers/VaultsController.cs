@@ -74,16 +74,17 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpPut]
+    [HttpPut("{id}")]
     [Authorize]
     async public Task<ActionResult<Vault>> Update(int id, [FromBody] Vault newVault)
     {
       try
       {
         Account account = await HttpContext.GetUserInfoAsync<Account>();
-        newVault.CreatorId = account.Id;
         newVault.Id = id;
-        return Ok(_vaultsService.Update(id, newVault));
+        newVault.CreatorId = account.Id;
+        newVault.Creator = account;
+        return Ok(_vaultsService.Update(account.Id, newVault));
       }
       catch (System.Exception err)
       {
