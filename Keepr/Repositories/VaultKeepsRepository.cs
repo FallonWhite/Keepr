@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
+// using System;
 using System.Data;
 using System.Linq;
 using Dapper;
 using Keepr.Models;
-using static Keepr.Models.Keep;
 
 namespace Keepr.Repositories
 {
@@ -16,16 +14,18 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    internal VaultKeep CreateVaultKeep(VaultKeep vaultKeepData)
+    internal VaultKeep CreateVaultKeep(VaultKeep newVaultKeep)
     {
-      string sql = @"INSERT INTO vault_keeps
+      string sql = @"
+      INSERT INTO vaultKeeps
       (vaultId, keepId, creatorId)
       VALUES
       (@VaultId, @KeepId, @CreatorId);
-      SELECT LAST_INSERT-ID();";
-      int id = _db.ExecuteScalar<int>(sql, vaultKeepData);
-      vaultKeepData.Id = id;
-      return vaultKeepData;
+      SELECT LAST_INSERT_ID();
+      ";
+      int id = _db.ExecuteScalar<int>(sql, newVaultKeep);
+      newVaultKeep.Id = id;
+      return newVaultKeep;
     }
 
     internal void Delete(int id)
