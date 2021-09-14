@@ -26,7 +26,7 @@ namespace Keepr.Controllers
       try
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
-        newVaultKeep.CreatorId = userInfo.Id;
+        newVaultKeep.CreatorId = userInfo?.Id;
         VaultKeep created = _vaultKeepsService.CreateVaultKeep(newVaultKeep);
         return Ok(created);
       }
