@@ -31,11 +31,11 @@ namespace Keepr.Services
     internal void Delete(int id, string userId)
     {
       VaultKeep vaultKeep = GetById(id);
-      if (vaultKeep.CreatorId != userId)
+      if (vaultKeep.CreatorId == userId)
       {
-        throw new Exception("Delete What Isn't Yours You Cannot");
+        _vkrepo.Delete(id);
       }
-      _vkrepo.Delete(id);
+      throw new Exception("Delete What Isn't Yours You Cannot");
     }
 
     public VaultKeep GetById(int id)

@@ -41,3 +41,10 @@ CREATE TABLE IF NOT EXISTS vault_keeps (
   FOREIGN KEY (vaultId) REFERENCES vaults(id) ON DELETE CASCADE,
   FOREIGN KEY (keepId) REFERENCES keeps(id) ON DELETE CASCADE
 ) default charset utf8 COMMENT '';
+-- SELECT * FROM keeps;
+-- SELECT * FROM accounts;
+-- SELECT * FROM vault_keeps;
+-- DROP Table keeps;
+-- DROP Table accounts;
+-- DROP Table vaults;
+-- DROP Table vault_keeps;
