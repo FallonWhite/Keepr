@@ -16,16 +16,16 @@ namespace Keepr.Services
       _vaultsrepo = vaultsrepo;
     }
 
-    public VaultKeep CreateVaultKeep(VaultKeep vaultkeepData, string userId)
+    internal VaultKeep CreateVaultKeep(VaultKeep newVaultKeep)
     {
-      VaultKeep vaultKeep = _vkrepo.CreateVaultKeep(vaultkeepData);
-      vaultkeepData.Id = vaultKeep.Id;
-      Vault vault = _vaultsrepo.GetById(vaultkeepData.VaultId);
-      if (vault.CreatorId != userId)
+      // VaultKeep newVaultKeep = _vkrepo.CreateVaultKeep(newVaultkeep);
+      // newVaultkeep.Id = vaultKeep.Id;
+      Vault vault = _vaultsrepo.GetById(newVaultKeep.VaultId);
+      if (vault.CreatorId == newVaultKeep.CreatorId)
       {
-        throw new Exception("Cannot Create What Isn't Yours");
+        return _vkrepo.CreateVaultKeep(newVaultKeep);
       }
-      return vaultkeepData;
+      throw new Exception("Cannot Create");
     }
 
     internal void Delete(int id, string userId)
