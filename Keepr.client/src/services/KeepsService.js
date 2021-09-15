@@ -8,6 +8,7 @@ class KeepsService {
     logger.log('keeps', res.data)
     AppState.keeps = res.data
   }
+
   async view(id, keep) {
     keep.views = (keep.views += 1)
     const res = await api.put('api/keeps/views/' + id, keep)
@@ -28,6 +29,7 @@ class KeepsService {
     const keep = AppState.keeps.find(k => k.id === id)
     AppState.activeKeep = keep
   }
+
   async deleteKeep(id) {
     await api.delete('api/keeps/' + id)
     AppState.keeps = AppState.keeps.filter(k => k.id !== id)
@@ -43,4 +45,4 @@ class KeepsService {
   // }  I'm not sure if I need this one but I wanted it here in case I want to use a delete
 }
 
-export const KeepsService = new KeepsService()
+export const keepsService = new KeepsService()
