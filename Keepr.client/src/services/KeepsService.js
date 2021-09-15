@@ -43,4 +43,4 @@ class KeepsService {
   // }  I'm not sure if I need this one but I wanted it here in case I want to use a delete
 }
 
-export const KeepsService = newKeepsService()
+export const KeepsService = new KeepsService()
