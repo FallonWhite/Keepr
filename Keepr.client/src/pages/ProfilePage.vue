@@ -34,6 +34,9 @@
     <div class="masonry flex-wrap m-2">
       <Keep v-for="k in keeps" :key="k.id" :keep="k" class="keep" />
     </div>
+    <keepModal />
+    <createVaultModal />
+    <createKeepModal />
   </div>
 </template>
 
@@ -45,7 +48,10 @@ import { profilesService } from '../services/ProfilesService'
 import Pop from '../utils/Notifier'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
+import KeepModal from '../components/KeepModal.vue'
+import CreateVaultModal from '../components/CreateVaultModal.vue'
 export default {
+  components: { KeepModal, CreateVaultModal },
   setup() {
     const route = useRoute()
     const state = reactive({
