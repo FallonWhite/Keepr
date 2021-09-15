@@ -20,17 +20,17 @@
 import { computed, onMounted, ref } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import Pop from '../utils/Notifier'
-// import { keepsService } from '../services/KeepsService'
+import { keepsService } from '../services/KeepsService'
 // import { vaultsService } from '../services/VaultsService'
 
 export default {
   // name: 'Home'
   setup() {
     const loading = ref(true)
-    onMounted(() => {
+    onMounted(async() => {
       try {
-      // await keepsService.getAllKeeps()
-      // await vaultsService.getVaults()
+        await keepsService.getAllKeeps()
+        // await vaultsService.getVaults()
         loading.value = false
       } catch (error) {
         Pop.toast(error, 'error')
