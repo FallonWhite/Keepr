@@ -1,13 +1,19 @@
 <template>
   <div class="profile-page container-fluid">
-    <div class="row">
+    <div class="row m-3">
       <div class="col-md-2">
         {{ profile.picture }}
       </div>
       <div class="col-md-10">
-        {{ profile.name }} <br>
-        Vaults: {{ state.vaults.length }}<br>
-        Keeps: {{ state.keeps.length }}
+        <h3 class="shadow">
+          {{ profile.name }}
+        </h3>
+        <h5 class="shadow">
+          Vaults: {{ vaults.length }}
+        </h5>
+        <h5 class="shadow">
+          Keeps: {{ state.keeps.length }}
+        </h5>
       </div>
     </div>
   </div>
