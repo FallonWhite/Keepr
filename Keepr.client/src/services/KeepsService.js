@@ -9,7 +9,7 @@ class KeepsService {
     AppState.keeps = res.data
   }
 
-  async view(id, keep) {
+  async views(id, keep) {
     keep.views = (keep.views += 1)
     const res = await api.put('api/keeps/views/' + id, keep)
     AppState.keeps = [...AppState.keeps, res.data]

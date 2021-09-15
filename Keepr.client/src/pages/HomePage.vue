@@ -31,7 +31,7 @@ export default {
       try {
         await keepsService.getAllKeeps()
         // await vaultsService.getVaults()
-        loading.value = false
+        // loading.value = false
       } catch (error) {
         Pop.toast(error, 'error')
       }
