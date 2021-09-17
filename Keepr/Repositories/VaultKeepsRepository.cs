@@ -1,4 +1,5 @@
 // using System;
+// using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Dapper;
@@ -17,14 +18,13 @@ namespace Keepr.Repositories
     internal VaultKeep CreateVaultKeep(VaultKeep newVaultKeep)
     {
       string sql = @"
-      INSERT INTO vaultKeeps
-      (vaultId, keepId, creatorId)
-      VALUES
-      (@VaultId, @KeepId, @CreatorId);
+      INSERT INTO vaultKeeps (vaultId, keepId, creatorId)
+      VALUES (@VaultId, @KeepId, @CreatorId);
       SELECT LAST_INSERT_ID();
       ";
-      int id = _db.ExecuteScalar<int>(sql, newVaultKeep);
-      newVaultKeep.Id = id;
+      // int id = _db.ExecuteScalar<int>(sql, newVaultKeep);
+      // newVaultKeep.Id = id;
+      newVaultKeep.Id = _db.ExecuteScalar<int>(sql, newVaultKeep);
       return newVaultKeep;
     }
 

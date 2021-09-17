@@ -10,6 +10,7 @@ namespace Keepr.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
+  [Authorize]
   public class VaultKeepsController : ControllerBase
   {
     private readonly VaultKeepsService _vaultKeepsService;
@@ -26,7 +27,7 @@ namespace Keepr.Controllers
       try
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
-        newVaultKeep.CreatorId = userInfo?.Id;
+        newVaultKeep.CreatorId = userInfo.Id;
         VaultKeep vaultKeep = _vaultKeepsService.CreateVaultKeep(newVaultKeep);
         return Ok(vaultKeep);
       }
