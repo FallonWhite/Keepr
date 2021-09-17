@@ -1,5 +1,5 @@
 <template>
-  <div v-if="vault.isPrivate == false" class="m-1 vault-bgimg">
+  <div v-if="vault.isPrivate == false" class="m-1 vaultAction">
     <router-link :to="{name: 'Vault', params: {id: vault.id}}" @click="setActiveVault">
       <div class="Vault card m-2 shadow">
         <div class="my-2 p-2">
@@ -84,7 +84,7 @@ export default {
  background-size: cover;
 }
 
-.vault-bgimg:hover {
+.vaultAction:hover {
  transform: scale(1.1);
  }
 
