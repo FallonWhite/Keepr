@@ -10,7 +10,7 @@ namespace Keepr.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  [Authorize]
+  // [Authorize]
   public class VaultKeepsController : ControllerBase
   {
     private readonly VaultKeepsService _vaultKeepsService;
@@ -52,5 +52,22 @@ namespace Keepr.Controllers
         return BadRequest(err.Message);
       }
     }
+    // [HttpGet("{id}")]
+    // public async Task<ActionResult<VaultKeep>> GetAsync<Account>();
+    // {
+    //   try
+    //   {
+    //   Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
+    //   VaultKeep vaultKeep = _vaultKeepsService.GetById(id);
+    //   return Ok(vaultKeep);
+
+    //   }
+    //   catch (Exception err)
+    //   {
+
+    //       return BadRequest(err.Message);
+    //   }
+
+    // }
   }
 }
