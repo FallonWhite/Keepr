@@ -2,11 +2,11 @@
   <div class="keep rounded bg-dark text-left selectable my-4 mx-1 p-0 pt-2 pl-2 pr-2" data-toggle="modal" :data-target="'#keep-modal-'+keep.id" title="Keep Details">
     <img class="card-img" :src="keep.img" alt="card image" style="cover">
     <div class="d-flex namePosition">
-      <h5 class="text-light">
+      <h5 class="text-light mt-2">
         {{ keep.name }}
       </h5>
       <!-- <router-link class="" :to="{name: 'ProfilePage', params: {id: keep.creatorId}}"> -->
-      <img class="profimg justify-content: flex-end;" :src="keep.creator.picture" alt="profile image">
+      <img class="profimg justify-content: flex-end ml-5 m-1" :src="keep.creator.picture" alt="profile image">
       <!-- </router-link> -->
     </div>
   </div>

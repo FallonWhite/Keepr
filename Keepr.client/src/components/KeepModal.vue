@@ -18,23 +18,16 @@
           <h6 class="d-flex align-items-center m-1">
             <span><i class="fas fa-share-alt"></i></span>{{ keep.views }}
           </h6>
-          <button type="button" class="btn btn-outline-light btn-secondary text-dark" data-dismiss="modal">
+          <button type="button" class="btn btn-outline-light btn-secondary text-dark" data-dismiss="modal" aria-label="Close">
             <b><i>X</i></b>
           </button>
-          <!-- <h3 class="modal-title">
-            {{ keep.name }}
-          </h3> -->
-          <!-- <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button> -->
         </div>
         <div class="modal-body bg-dark">
           <div class="container-fluid">
             <div class="row" v-if="keep.img">
               <!-- <div class="row" v-if="state.user && state.myVaults"> -->
               <div class="d-flex col-6 p-1">
-                <!-- <img class="w-100 h-100 cover shadow-light" modal :src="keep.img" alt="Keep Image"> -->
-                <img class="w-100 h-100 cover shadow-light" :src="keep.img">
+                <img class="w-100 h-100 cover shadow-light" :src="keep.img" alt="Keep Image">
               </div>
               <h3 class="modal-title text-align-center p-2">
                 {{ keep.name }}
@@ -100,12 +93,12 @@ export default {
   height: 50vh;
   overflow-y: auto;
 }
-// .modalSize {
-//   width: 100%;
-//   min-height: 300px;
-//   max-height: 50vh;
-//   object-fit: contain;
-// }
+.modalSize {
+  width: 100%;
+  min-height: 300px;
+  // max-height: 50vh;
+  object-fit: contain;
+}
 .cover {
   object-fit: cover;
 }
