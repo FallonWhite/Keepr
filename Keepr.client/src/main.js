@@ -2,6 +2,7 @@ import 'bootstrap'
 import 'jquery'
 import 'popper.js'
 import 'sweetalert2/dist/sweetalert2.min.css'
+// import { FontAwesomeIcon } from 'fortawesome/vue-fontawesome'
 import { createApp } from 'vue'
 // @ts-ignore
 import App from './App.vue'

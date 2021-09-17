@@ -6,7 +6,7 @@
        aria-labelledby="KeepModalTitle"
        aria-hidden="true"
   >
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modalSize" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark py-1 justify-content-around">
           <h6 class="d-flex align-items-center m-1">
@@ -18,6 +18,9 @@
           <h6 class="d-flex align-items-center m-1">
             <span><i class="fas fa-share-alt"></i></span>{{ keep.views }}
           </h6>
+          <button type="button" class="btn btn-outline-light btn-secondary text-dark" data-dismiss="modal">
+            <b><i>X</i></b>
+          </button>
           <!-- <h3 class="modal-title">
             {{ keep.name }}
           </h3> -->
@@ -43,7 +46,7 @@
             <div class="border-top p-1"></div>
           </div>
         </div>
-        <div class="modal-footer bg-dark justify-content-space-between">
+        <div class="modal-footer bg-dark justify-content-space-around">
           <!-- <form @submit.prevent="addKeepToVault(keep.id)">
             <div class="form-group">
               <select class="form-control"
@@ -63,9 +66,10 @@
           <p class="hoverable" :title="'Delete' + keep.name" @click="deleteKeep">
             <span class="fas fa-trash-alt">Delete</span>
           </p>
-          <button type="button" class="btn btn-outline-light btn-secondary text-dark" data-dismiss="modal">
+          <img class="profileImg justify-content: flex-end; rounded" :src="keep.creator.picture" alt="profile image">{{ keep.creator.name }}
+          <!-- <button type="button" class="btn btn-outline-light btn-secondary text-dark" data-dismiss="modal">
             <b><i>Close</i></b>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -96,7 +100,20 @@ export default {
   height: 50vh;
   overflow-y: auto;
 }
+// .modalSize {
+//   width: 100%;
+//   min-height: 300px;
+//   max-height: 50vh;
+//   object-fit: contain;
+// }
 .cover {
   object-fit: cover;
+}
+.profileImg {
+  height: 2rem;
+  border-radius: 50%;
+}
+.modal-footer {
+  justify-content: space-around;
 }
 </style>
