@@ -18,9 +18,9 @@
           <h6 class="d-flex align-items-center m-1">
             <span><i class="fas fa-share-alt"></i></span>{{ keep.views }}
           </h6>
-          <h3 class="modal-title">
+          <!-- <h3 class="modal-title">
             {{ keep.name }}
-          </h3>
+          </h3> -->
           <!-- <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> -->
@@ -33,10 +33,14 @@
                 <!-- <img class="w-100 h-100 cover shadow-light" modal :src="keep.img" alt="Keep Image"> -->
                 <img class="w-100 h-100 cover shadow-light" :src="keep.img">
               </div>
-              <h6 class="text-left">
+              <h3 class="modal-title text-align-center p-2">
+                {{ keep.name }}
+              </h3>
+              <p class="text-left">
                 {{ keep.description }}
-              </h6>
+              </p>
             </div>
+            <div class="border-top p-1"></div>
           </div>
         </div>
         <div class="modal-footer bg-dark">

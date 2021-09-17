@@ -1,15 +1,10 @@
 <template>
   <div class="home flex-grow-1 container">
-    <div class="row d flex">
-      <div class="col-md-12">
-        <!-- <ActiveKeep v-if="activeKeep" /> -->
-      </div>
-    </div>
-    <div class="row">
+    <div class="row d-flex">
       <!-- <div v-if="loading" class="col text-center">
         <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
       </div> -->
-      <div class="card-columns">
+      <div class="card-columns col-md-12 mt-4">
         <Keep v-for="k in keeps" :key="k.id" :keep="k" />
       </div>
     </div>
@@ -54,18 +49,5 @@ export default {
 //     width: 200px;
 //   }
 // }
-.masonry {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 1000;
-  margin: 2;
-  .keep {
-    width: 150px;
-    background-size: cover;
-    background-color: maroon;
-    color: black;
-    margin: 0 1rem 1rem 0;
-  }
-}
+
 </style>
