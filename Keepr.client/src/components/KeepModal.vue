@@ -43,9 +43,25 @@
             <div class="border-top p-1"></div>
           </div>
         </div>
-        <div class="modal-footer bg-dark">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
+        <div class="modal-footer bg-dark justify-content-space-between">
+          <!-- <form @submit.prevent="addKeepToVault(keep.id)">
+            <div class="form-group">
+              <select class="form-control"
+                      name="vaultName"
+                      v-model="state.newVaultKeep.vaultId"
+                      aria-describedby="'Vault Name'"
+              >
+                <option v-for="v in vaults" :key="v.id" :value="v.id">
+                  {{ v.name }}
+                </option>
+              </select> -->
+          <button type="submit" class="btn btn-outline-light btn-secondary text-dark">
+            <b>Add To Vault</b>
+          </button>
+          <!-- </div> -->
+          <!-- </form> -->
+          <button type="button" class="btn btn-outline-light btn-secondary text-dark" data-dismiss="modal">
+            <b><i>Close</i></b>
           </button>
         </div>
       </div>
