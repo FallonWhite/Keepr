@@ -60,6 +60,9 @@
           </button>
           <!-- </div> -->
           <!-- </form> -->
+          <p class="hoverable" :title="'Delete' + keep.name" @click="deleteKeep">
+            <span class="fas fa-trash-alt">Delete</span>
+          </p>
           <button type="button" class="btn btn-outline-light btn-secondary text-dark" data-dismiss="modal">
             <b><i>Close</i></b>
           </button>
