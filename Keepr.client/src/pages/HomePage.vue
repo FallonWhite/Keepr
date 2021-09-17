@@ -2,15 +2,15 @@
   <div class="home flex-grow-1 container">
     <div class="row d flex">
       <div class="col-md-12">
-        <ActiveKeep v-if="activeKeep" />
+        <!-- <ActiveKeep v-if="activeKeep" /> -->
       </div>
     </div>
     <div class="row">
-      <div v-if="loading" class="col text-center">
+      <!-- <div v-if="loading" class="col text-center">
         <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-      </div>
-      <div v-else class="masonry">
-        <Keep v-for="k in keeps" :key="k.id" :keep="k" class="keep" />
+      </div> -->
+      <div class="card-columns">
+        <Keep v-for="k in keeps" :key="k.id" :keep="k" />
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
       try {
         await keepsService.getAllKeeps()
         // await vaultsService.getVaults()
-        // loading.value = false
+        // const loading = false
       } catch (error) {
         Pop.toast(error, 'error')
       }

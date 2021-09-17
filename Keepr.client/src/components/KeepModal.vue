@@ -1,5 +1,4 @@
 <template>
-  <!-- Modal -->
   <div class="modal"
        :id="'keep-modal-'+keep.id"
        tabindex="-1"
@@ -19,9 +18,9 @@
         </div>
         <div class="modal-body bg-dark">
           <div class="container-fluid">
-            <div class="row" v-if="keep.image.length">
-              <div class="col-6 p-1" v-for="pic in project.image" :key="pic.id">
-                <img class="w-100 h-100 cover shadow-light" :src="img.imgUrl">
+            <div class="row" v-if="keep.img">
+              <div class="col-6 p-1">
+                <img class="w-100 h-100 cover shadow-light" :src="keep.img">
               </div>
             </div>
           </div>
@@ -39,7 +38,7 @@
 <script>
 export default {
   props: {
-    project: {
+    keep: {
       type: Object,
       required: true
     }
@@ -51,11 +50,11 @@ export default {
 </script>
 
 <style lang="scss">
-.modal-backdrop.show{
-  opacity: 1!important;
-  background:  var(--fade);
-  backdrop-filter: blur(30px) brightness(.5) contrast(.85);
-}
+// .modal-backdrop.show{
+//   opacity: 1!important;
+//   background:  var(--fade);
+//   backdrop-filter: blur(30px) brightness(.5) contrast(.85);
+// }
 .modal-body{
   height: 50vh;
   overflow-y: auto;
