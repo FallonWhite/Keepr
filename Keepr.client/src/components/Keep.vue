@@ -5,9 +5,9 @@
       <h5 class="text-light mt-2">
         {{ keep.name }}
       </h5>
-      <!-- <router-link class="" :to="{name: 'ProfilePage', params: {id: keep.creatorId}}"> -->
-      <img class="profimg justify-content: flex-end ml-5 m-1" :src="keep.creator.picture" alt="profile image">
-      <!-- </router-link> -->
+      <router-link class="" :to="{name: 'Profile', params: {id: keep.creatorId}}" @click="setActiveProfile">
+        <img class="profimg justify-content: flex-end ml-5 m-1" :src="keep.creator.picture" alt="profile image">
+      </router-link>
     </div>
   </div>
   <KeepModal :keep="keep" />
